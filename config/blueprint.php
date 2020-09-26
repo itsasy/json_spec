@@ -70,7 +70,7 @@ return [
     | by defining your `foreign` key column with an `onDelete`.
     |
     */
-    'use_constraints' => false,
+    'use_constraints' => true,
 
     'on_delete' => 'cascade',
 
@@ -100,7 +100,7 @@ return [
     |
     */
 
-    'use_guarded' => false,
+    'use_guarded' => true,
 
     /*
     |--------------------------------------------------------------------------
