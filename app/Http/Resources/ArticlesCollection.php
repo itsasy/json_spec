@@ -11,13 +11,7 @@ class ArticlesCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'data' => $this->collection,
-            'links' => [
-                'self' => route('article.index')
-            ],
-            'meta' => [
-                'articles_count' => $this->collection->count()
-            ]
+            'data' => $this->collection
         ];
     }
 }

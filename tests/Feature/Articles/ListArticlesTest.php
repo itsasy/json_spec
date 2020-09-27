@@ -37,13 +37,12 @@ class ListArticlesTest extends TestCase
     /** @test */
     public function can_fetch_all_articles()
     {
-        $this->withoutExceptionHandling();
         $articles = factory(Article::class)->times(2)->create();
 
         $response = $this->getJson(route('article.index'));
 
 
-        $response->assertExactJson([
+        $response->assertJsonFragment([
             'data' => [
                 [
                     'type' => 'articles',
@@ -69,12 +68,6 @@ class ListArticlesTest extends TestCase
                         'self' => route('article.show', $articles[1]->getRouteKey())
                     ]
                 ]
-            ],
-            'links' => [
-                'self' => route('article.index'),
-            ],
-            'meta' => [
-                'articles_count' => $articles->count()
             ]
         ]);
     }
