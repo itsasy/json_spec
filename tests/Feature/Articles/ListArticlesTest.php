@@ -37,6 +37,7 @@ class ListArticlesTest extends TestCase
     /** @test */
     public function can_fetch_all_articles()
     {
+        $this->withoutExceptionHandling();
         $articles = factory(Article::class)->times(2)->create();
 
         $response = $this->getJson(route('article.index'));
